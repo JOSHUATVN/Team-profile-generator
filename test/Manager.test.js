@@ -15,5 +15,5 @@ test("getJob() should return \"Manager\"", () => {
 test("Get phone number from phoneNumber()", () => {
     const value = 100;
     const m = new Manager("test", 1, "test@testmail.com", value);
-    expect(m.phoneNumber()).toBe(value);
+    expect(m.getPhoneNumber()).toBe(value);
 });
