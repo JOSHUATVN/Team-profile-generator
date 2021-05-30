@@ -1,0 +1,23 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "generate a webpage that displayes my teams basic info so that i have access to their emails and github profiles",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JOSHUATVN/Team-profile-generator.git"
+  },
+  "author": "Joshua Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JOSHUATVN/Team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/JOSHUATVN/Team-profile-generator#readme"
+}
