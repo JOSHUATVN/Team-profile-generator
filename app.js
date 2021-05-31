@@ -102,16 +102,16 @@ function startHTML() {
 
 
 
-function addHTML (member) {
+function addHTML (employee) {
     return new Promise(function(resolve, reject) {
-        const name = member.getName();
-        const job = member.getJob();
-        const id = member.getId();
-        const email = member.getEmail();
+        const name = employee.getName();
+        const job = employee.getJob();
+        const id = employee.getId();
+        const email = employee.getEmail();
         let data = "";
 
         if (job === "Engineer")  {
-            const gitHub = member.getUser();
+            const gitHub = employee.getUser();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 20rem">
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
@@ -123,7 +123,7 @@ function addHTML (member) {
             </div>
         </div>`;
         }else if(job === "Intern") {
-            const school = member.getSchool();
+            const school = employee.getSchool();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 20rem">
             <h5 class="card-header">${name}<br /><br />Intern</h5>
@@ -135,7 +135,7 @@ function addHTML (member) {
             </div>
         </div>`;
         }else{
-            const phoneNumber = member.getPhoneNumber();
+            const phoneNumber = employee.getPhoneNumber();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 20rem">
             <h5 class="card-header">${name}<br /><br />Manager</h5>
