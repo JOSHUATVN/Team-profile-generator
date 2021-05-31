@@ -3,6 +3,8 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
+const employees = [];
+
 
 function initApp() {
     startHTML();
@@ -13,63 +15,65 @@ function initApp() {
 
 function addEmployee() {
     inquirer.prompt([{
-        message: "Enter team-member's name.",
+        message: "Enter team-member's name",
         name: "name"
     },
     {
         type: "list",
-        message: "Select team-member's job.",
+        message: "Select team-member's job",
         choices: ["Engineer", "Intern", "Manager"],
         name: "job"
     },
     {
-        message: "Enter team-member's id.",
+        message: "Enter team-member's id",
         name: "id"
     },
     {
-        message: "Enter team-member's email.",
+        message: "Enter team member's email address",
         name: "email"
     }])
-    .then(function({name, role, id, email}) {
+    .then(function({name, job, id, email}) {
         let jobInfo = "";
         if (job === "Engineer") {
-         jobInfo = "GitHub username";
+            jobInfo = "Github username";
         } else if (job === "Intern") {
-         jobInfo = "school name";
+            jobInfo = "school name";
         } else {
-         jobInfo = "phone number";
+            jobInfo = "Phone number";
         }
         inquirer.prompt([{
-            message: `Enter team member's ${jobInfo}`,
-            name:  "jobInfo"
+            message: `Enter team-member's ${jobInfo}`,
+            name: "jobInfo"
         },
         {
             type: "list",
             message: "Would you like to add more team-member's?",
             choices: ["yes", "no"],
-            name: "addMembers"
+            name: "moreEmployees"
         }])
-        .then(function({jobInfo, addMembers}) {
-            let newMember;
+        .then(function({jobInfo, moreEmployees}) {
+            let newEmployee;
             if (job === "Engineer") {
-                newMember = new Engineer(name, id, email, jobInfo);
+                newEmployee = new Engineer(name, id, email, jobInfo);
             } else if (job === "Intern") {
-                newMember = new Intern(name, id, email, jobInfo);
+                newEmployee = new Intern(name, id, email, jobInfo);
             } else {
-                newMember = new Manager(name, id, email, jobInfo);
+                newEmployee = new Manager(name, id, email, jobInfo);
             }
-            employees.push(newMember);
-            addHtml(newMember)
+            employees.push(newEmployee);
+            addHTML(newEmployee)
             .then(function() {
-                if (addMembers === "yes") {
-                    addMember();
+                if (moreEmployees === "yes") {
+                    addEmployee();
                 } else {
                     finishHtml();
                 }
-            }); 
+            });
+            
         });
     });
 }
+
 
 
 function startHTML() {
@@ -107,7 +111,7 @@ function addHTML () {
         let data = "";
 
         if (job === "Engineer")  {
-            const github = member.getUser();
+            const gitHub = member.getUser();
             data = `<div class="col-6">
             <div class="card mx-auto mb-3" style="width: 20rem">
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
@@ -138,7 +142,7 @@ function addHTML () {
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
                 <li class="list-group-item">Email Address: ${email}</li>
-                <li class="list-group-item">Office Phone: ${officePhone}</li>
+                <li class="list-group-item">Office Phone: ${phoneNumber}</li>
             </ul>
             </div>
         </div>`
@@ -153,6 +157,21 @@ function addHTML () {
         });
     
     
-    })};
+    });
+};
 
+function finishHtml() {
+        const html = ` </div>
+        </div>
+        
+    </body>
+    </html>`;
+    
+        fs.appendFile("./output/team.html", html, function (err) {
+            if (err) {
+                console.log(err);
+            };
+        });
+        console.log("end");
+};
 initApp();

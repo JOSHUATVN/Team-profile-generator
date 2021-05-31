@@ -20,7 +20,7 @@ describe("Employee", () => {
     it("Can set Emails for constructor arguments", () => {
         const value = "test@testmail.com";
         const m = new Employee("test", 1, value);
-        expect(m.getName()).toBe(value);
+        expect(m.email).toBe(value);
     });
 
     describe("getName", () => {

@@ -19,5 +19,9 @@
   "bugs": {
     "url": "https://github.com/JOSHUATVN/Team-profile-generator/issues"
   },
-  "homepage": "https://github.com/JOSHUATVN/Team-profile-generator#readme"
+  "homepage": "https://github.com/JOSHUATVN/Team-profile-generator#readme",
+  "dependencies": {
+    "inquirer": "^8.1.0",
+    "jest": "^27.0.3"
+  }
 }

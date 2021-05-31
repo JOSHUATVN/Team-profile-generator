@@ -3,7 +3,7 @@ const Manager = require("../lib/Manager");
 test("Can set Phone Number from constructor argument", () => {
     const value = 100;
     const m = new Manager("test", 1, "test@testmail.com", value);
-    expect(m.phoneNumber()).toBe(value);
+    expect(m.phoneNumber).toBe(value);
 });
 
 test("getJob() should return \"Manager\"", () => {
