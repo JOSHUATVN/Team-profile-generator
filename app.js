@@ -3,7 +3,7 @@ const fs = require("fs");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
 const Manager = require("./lib/Manager");
-const employees = [];
+let employees = [];
 
 
 function initApp() {
@@ -102,7 +102,7 @@ function startHTML() {
 
 
 
-function addHTML () {
+function addHTML (member) {
     return new Promise(function(resolve, reject) {
         const name = member.getName();
         const job = member.getJob();
