@@ -87,7 +87,7 @@ function startHTML() {
         <title>Team Profiles</title>
     </head>
     <body>
-        <nav class="navbar navbar-dark bg-dark mb-5">
+        <nav class="navbar navbar-primary bg-primary mb-5">
             <span class="navbar-brand mb-0 h1 w-100 text-center">Team Profiles</span>
         </nav>
         <div class="container">
@@ -113,7 +113,7 @@ function addHTML (employee) {
         if (job === "Engineer")  {
             const gitHub = employee.getUser();
             data = `<div class="col-6">
-            <div class="card mx-auto mb-3" style="width: 20rem">
+            <div class="card mx-auto mb-3 bg-info" style="width: 20rem">
             <h5 class="card-header">${name}<br /><br />Engineer</h5>
             <ul class="list-group list-group-flush">
                 <li class="list-group-item">ID: ${id}</li>
